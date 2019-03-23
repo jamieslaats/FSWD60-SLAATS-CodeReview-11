@@ -1,0 +1,167 @@
+body {
+	margin: 20px 0px 0px 0px;
+}
+
+
+/*---SECTION STYLING FOR HEADER AND NAV BAR -->*/
+.header img {
+	width:  50%;
+}
+.header {
+	background-color: #4ABDAC;
+}
+.navcolour {
+	background-color:  #DFDCE3;
+}
+.navcolour li a {
+	color: #4ABDAC;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+#navstyling li a:hover {
+	background-color: #FC4A1A;
+	color: #DFDCE3;
+}
+
+
+/*---MAINCONTENT SECTION STYLING ---*/
+
+.jumbotron {
+  	padding-top: 10px;
+  	padding-bottom: 15px;
+  	margin-bottom: 10px;
+ 	color: #FC4A1A;
+  	background-color: #DFDCE3;
+ }
+#dataset {
+	margin: 5px 0px 10px 0px;
+}
+.travelcard-title {
+		margin-bottom: 30px;
+}
+.travelcard-img-top {
+	width:  100%;
+	border-radius: 5%;
+}
+.content1 h2 {
+	background-color: #4ABDAC;
+	color:  #DFDCE3;
+	font-weight: bold;
+	padding: 5px 0px 5px 5px;
+	text-decoration: none;
+}
+#s1 {
+	color: #FC4A1A;
+}
+.travelcard {
+	display: flex;
+	flex-direction: column; /*seeing if flexbox will fix equal column height*/
+	background-color: #DFDCE3;
+	border-radius: 1%;
+	padding: 0px 2px 0px 2px;
+}
+span {
+	font-weight: bold;
+}
+.font-italic {
+	text-align: left;
+	font-style: italic;
+}
+p, h3 {
+	padding: 0px 5px 0px 5px;
+}
+.content1 a {
+	text-decoration: none;
+}
+#toparrow {
+	text-align: center;
+	margin: 15px 0px 5px 0px;
+}
+#toparrow a {
+		color: #FC4A1A;
+		text-decoration: none;
+}
+
+
+/*FORM SECTION STYLING ---*/
+
+.formregistration {
+	max-width: 500px;
+  	padding: 15px;
+  	margin: 0 auto;
+}
+#regformlettering {
+	font-size: 1.3em;
+	vertical-align: middle;
+
+}
+#loginbtn {
+  color: #DFDCE3;
+  background-color:  #4ABDAC;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.createupdateeditingforms {
+  max-width: 1000px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.createupdateeditingforms .form-heading,
+.createupdateeditingforms .checkbox {
+  margin-bottom: 10px;
+}
+.createupdateeditingforms .checkbox {
+  font-weight: normal;
+}
+.createupdateeditingforms .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.createupdateeditingforms .form-control:focus {
+  z-index: 2;
+}
+.createupdateeditingforms input {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.createupdateeditingforms input {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#submitbtns {
+  color: #DFDCE3;
+  background-color:  #4ABDAC;
+  align-content: center;
+}
+
+#labellettering {
+	font-size: 1.5em;
+	vertical-align: middle;
+}
+.updatesections h3 {
+	text-align: center;
+}
+
+
+/*---FOOTER SECTION STYLING ---*/
+#footer {
+	background-color: #4ABDAC ;
+	color: #DFDCE3 ;
+	margin: 50px 0px 0px 0px;
+	padding: 20px 0px 20px 0px;
+}
+
+@media (max-width: 768px) { 
+.travelcard-img-top{
+  display: none;
+  } 
+}
