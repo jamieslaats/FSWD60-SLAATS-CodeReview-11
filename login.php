@@ -4,12 +4,12 @@ ob_start();
 session_start(); // start a new session or continues the previous
 
 if (isset($_SESSION['User'])){
-    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE User_ID = ". $_SESSION['User']. "");
-    $count = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    header("Location: home.php");
+    exit;    
 }
 if (isset($_SESSION['Admin'])){
-    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE User_ID = ". $_SESSION['Admin']. "");
-    $count = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    header("Location: adminpanel.php");
+    exit;  
 }
 
 include_once 'actions/db_connect.php';
@@ -54,13 +54,13 @@ if( !$error ) {
 
   $pass = hash('sha256',$Password); //password hashing
 
-  $result = mysqli_query($connect, "SELECT Firstname, Surname, Email, Password, Status, Empl_ID FROM userdata WHERE Email = '$Email'");
+  $result = mysqli_query($connect, "SELECT User_ID,Firstname, Surname, Email, Password, Status, Empl_ID FROM userdata WHERE Email = '$Email'");
   $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
   $count = mysqli_num_rows($result); // if userid, firstname, lastname, pass is correct it returns must be 1 row --> Normally this is the line  $count = mysqli_num_rows($result);
 
   if($count ==1 && $row['Password']==$pass && $row['Status']==='Admin') {
     $_SESSION['Admin']= $row['User_ID'];
-    header("Location: home.php");
+    header("Location: adminpanel.php");
 } elseif ($count ==1 && $row['Password']==$pass && $row['Status']==='User') {
     $_SESSION['User'] = $row['User_ID'];
     header("Location: home.php");

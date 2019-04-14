@@ -1,17 +1,17 @@
-<?php /*
+<?php 
 
   ob_start();
   session_start();
   require_once 'actions/db_connect.php';
 
-  if (isset($_SESSION['Admin']) == ""){
+  if (!isset($_SESSION['Admin'])){
         header("Location: login.php");
             exit;
 }
-    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE Status=". $_SESSION['Admin']. "");
+    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE User_ID=". $_SESSION['Admin']. "");
     $count=mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-*/
+
 ?>
 
 
@@ -65,33 +65,55 @@
             </div>
             <!--SCRIPTS FOR OUTPUTING DATA TO THE WEBPAGE FOR THE CONTENT MANAGEMENT -->
             <script>
+                var a = 1; //Create a variable as a, or b, c, d which will drive the buttons below for appearing and then disappearing.
+                var b = 1; //Create a variable as a, or b, c, d which will drive the buttons below for appearing and then disappearing.
+                var c = 1; //Create a variable as a, or b, c, d which will drive the buttons below for appearing and then disappearing.
+                var d = 1; //Create a variable as a, or b, c, d which will drive the buttons below for appearing and then disappearing.
+                var e = 1; //Create a variable as a, or b, c, d which will drive the buttons below for appearing and then disappearing.
                 function viewContent() {
+                     a++; //this is then taking the value of a, and making it ++ so 2. when pushed. then what follows will be below...
                     var viewcont = new XMLHttpRequest(); //create variable xhttp
                         viewcont.onreadystatechange = function() { //xhttp then on ready state change runs function.
                             if (this.readyState == 4 && this.status == 200) {
+                                if(a%2 == 0){ //this is then when pushed calculating a++. When it is even, so 2, 4, 6 etc. It displayes the data. When odd, it removes the data thereby making the display disappear. 
                                 document.getElementById("viewcontentdataoutput").innerHTML = this.responseText;
+                            } else {
+                                document.getElementById("viewcontentdataoutput").innerHTML ='';
+                            }
                             }
                         };
                         viewcont.open("GET","./actions/viewcontent.php",true);
                         viewcont.send();
                     }
+                
 
                     function createContent() {
+                         b++; //this is then taking the value of a, and making it ++ so 2. when pushed. then what follows will be below...
                     var crecont = new XMLHttpRequest(); //create variable xhttp
                         crecont.onreadystatechange = function() { //xhttp then on ready state change runs function.
                             if (this.readyState == 4 && this.status == 200) {
+                                if(b%2 == 0){ //this is then when pushed calculating a++. When it is even, so 2, 4, 6 etc. It displayes the data. When odd, it removes the data thereby making the display disappear. 
                                 document.getElementById("createcontentdataoutput").innerHTML = this.responseText;
+                            } else {
+                                document.getElementById("createcontentdataoutput").innerHTML ='';
+                            }
                             }
                         };
                         crecont.open("GET","./actions/createcontent.php",true);
                         crecont.send();
                     }
+                
 
                     function viewUser() {
+                        c++; //this is then taking the value of a, and making it ++ so 2. when pushed. then what follows will be below...
                     var viewu = new XMLHttpRequest(); //create variable xhttp
                         viewu.onreadystatechange = function() { //xhttp then on ready state change runs function.
                             if (this.readyState == 4 && this.status == 200) {
+                                if(c%2 == 0){ //this is then when pushed calculating a++. When it is even, so 2, 4, 6 etc. It displayes the data. When odd, it removes the data thereby making the display disappear. 
                                 document.getElementById("viewuserdataoutput").innerHTML = this.responseText;
+                            } else {
+                                document.getElementById("viewuserdataoutput").innerHTML ='';
+                            }
                             }
                         };
                         viewu.open("GET","./actions/viewuser.php",true);
@@ -99,10 +121,15 @@
                     }
 
                     function viewAddress() {
+                         d++; //this is then taking the value of a, and making it ++ so 2. when pushed. then what follows will be below...
                     var viewaddre = new XMLHttpRequest(); //create variable xhttp
                         viewaddre.onreadystatechange = function() { //xhttp then on ready state change runs function.
                             if (this.readyState == 4 && this.status == 200) {
+                                if(d%2 == 0){ //this is then when pushed calculating a++. When it is even, so 2, 4, 6 etc. It displayes the data. When odd, it removes the data thereby making the display disappear. 
                                 document.getElementById("viewaddressdataoutput").innerHTML = this.responseText;
+                            }   else {
+                                document.getElementById("viewaddressdataoutput").innerHTML ='';
+                            }
                             }
                         };
                         viewaddre.open("GET","./actions/viewaddress.php",true);
@@ -110,15 +137,21 @@
                     }
 
                     function createAddress() {
+                         e++; //this is then taking the value of a, and making it ++ so 2. when pushed. then what follows will be below...
                     var creadd = new XMLHttpRequest(); //create variable xhttp
                         creadd.onreadystatechange = function() { //xhttp then on ready state change runs function.
                             if (this.readyState == 4 && this.status == 200) {
+                                if(e%2 == 0){ //this is then when pushed calculating a++. When it is even, so 2, 4, 6 etc. It displayes the data. When odd, it removes the data thereby making the display disappear. 
                                 document.getElementById("createaddressdataoutput").innerHTML = this.responseText;
+                            } else {
+                                document.getElementById("createaddressdataoutput").innerHTML ='';
+                            }
                             }
                         };
                         creadd.open("GET","./actions/createaddress.php",true);
                         creadd.send();
                     }
+                
                 </script> <!--END OF SCRIPTS -->
                 <!-- CONTENT NAVIGATION BAR -->    
                 <div>
@@ -160,4 +193,4 @@
 </body>
 
 </html>
-<?php //ob_end_flush(); ?>
+<?php ob_end_flush(); ?>

@@ -1,17 +1,17 @@
-<?php /*
+<?php 
 
   ob_start();
   session_start();
   require_once 'actions/db_connect.php';
 
-  if (isset($_SESSION['Admin']) == ""){
+  if (!isset($_SESSION['Admin'])){
         header("Location: login.php");
             exit;
 }
-    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE Status=". $_SESSION['Admin']. "");
+    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE User_ID=". $_SESSION['Admin']. "");
     $count=mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-*/
+
 ?>
 
 <?php
@@ -64,4 +64,4 @@ echo "</tbody></table>";
 
 $connect->close();
 ?>
-<?php // ob_end_flush(); ?>
+<?php ob_end_flush(); ?>

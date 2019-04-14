@@ -1,25 +1,22 @@
-<?php /*
+<?php 
 
   ob_start();
   session_start();
   require_once 'actions/db_connect.php';
 
-  if (isset($_SESSION['User'])){
-    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE Status=". $_SESSION['User']. "");
+
+if (!isset($_SESSION['User'])){
+    header('Location : login.php');
+}
+
+    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE User_ID=". $_SESSION['User']. "");
     $userRow=mysqli_fetch_array($res, MYSQLI_ASSOC);
-  }
-  if (isset($_SESSION['Admin'])){
-    $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE Status=". $_SESSION['Admin']. "");
-    $userRow=mysqli_fetch_array($res, MYSQLI_ASSOC);
-  }
-  if(!isset($_SESSION['Admin']) && !isset($_SESSION['User'])){
-    header("Location: login.php");
-  }
+
   $log = "Login";
-  if(isset($_SESSION['Admin']) || isset($_SESSION['User'])){
+  if(isset($_SESSION['User'])){
     $log = "Logout";
   }
-*/
+
 ?>
 
 
@@ -164,4 +161,4 @@
 
 </html>
 
-<?php //ob_end_flush(); ?>
+<?php ob_end_flush(); ?>
