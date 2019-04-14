@@ -10,7 +10,7 @@ if (!isset($_SESSION['User'])){
 }
 
     $result = mysqli_query($connect, "SELECT * FROM `userdata` WHERE User_ID=". $_SESSION['User']. "");
-    $userRow=mysqli_fetch_array($res, MYSQLI_ASSOC);
+    $userRow=mysqli_fetch_array($result, MYSQLI_ASSOC);
 
   $log = "Login";
   if(isset($_SESSION['User'])){
@@ -52,7 +52,7 @@ if (!isset($_SESSION['User'])){
                 <li class="nav-item"><a href="restaurant.php" title="Restaurants">Restaurants</a></li>
                 <li class="nav-item"><a href="event.php" title="Events">Events</a></li>
                 <li class="nav-item"><a href="#contact" title="Contact">Contact</a></li>
-                <li class="nav-item"><a href="logout.php" title="logout">Logout</a></li>
+                <li class="nav-item"><a href="logout.php?logout" title="logout">Logout</a></li>
             </ul>
         </nav>
         <main>

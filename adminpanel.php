@@ -51,7 +51,7 @@
                 <li class="nav-item"><a href="event.php" title="Events">Events</a></li>
                 <li class="nav-item"><a href="#contact" title="Contact">Contact</a></li>
                 <li class="nav-item"><a href="adminpanel.php" title="AdminHome">Admin Home</a></li>
-                <li class="nav-item"><a href="#logout" title="logout">Logout</a></li>
+                <li class="nav-item"><a href="logout.php?logout" title="logout">Logout</a></li>
             </ul>
         </nav>
         <br>

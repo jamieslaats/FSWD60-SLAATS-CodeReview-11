@@ -2,7 +2,7 @@
 
   ob_start();
   session_start();
-  require_once 'actions/db_connect.php';
+  require_once 'db_connect.php';
 
   if (!isset($_SESSION['Admin'])){
         header("Location: login.php");
