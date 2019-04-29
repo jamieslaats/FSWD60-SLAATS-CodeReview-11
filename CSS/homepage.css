@@ -50,6 +50,10 @@ body {
 	padding: 5px 0px 5px 5px;
 	text-decoration: none;
 }
+.viewcontentp p {
+	color: black !important;
+	font-size: 1em !important;
+}
 #s1 {
 	color: #FC4A1A;
 }
